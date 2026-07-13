@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌 Un correo para ti</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Trebuchet MS',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffd6e8,#fff5fa);
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.heart{
+position:absolute;
+color:#ff4f8b;
+animation:flotar linear infinite;
+opacity:.8;
+}
+
+@keyframes flotar{
+from{
+transform:translateY(100vh) scale(.6);
+}
+to{
+transform:translateY(-120px) scale(1.3);
+}
+}
+
+.contenedor{
+text-align:center;
+padding:20px;
+}
+
+.rabbit{
+font-size:75px;
+animation:saltar 2s infinite;
+}
+
+@keyframes saltar{
+50%{transform:translateY(-10px);}
+}
+
+h1{
+color:#ff4f8b;
+margin:10px;
+}
+
+.sub{
+color:#666;
+margin-bottom:20px;
+}
+
+.sobre{
+width:220px;
+height:140px;
+margin:auto;
+position:relative;
+cursor:pointer;
+transition:.4s;
+}
+
+.base{
+position:absolute;
+bottom:0;
+width:100%;
+height:100%;
+background:#ff7cab;
+border-radius:8px;
+}
+
+.tapa{
+position:absolute;
+width:100%;
+height:100%;
+background:#ff94bc;
+clip-path:polygon(0 0,100% 0,50% 60%);
+transform-origin:top;
+transition:1s;
+}
+
+.carta{
+position:absolute;
+left:10px;
+right:10px;
+bottom:10px;
+background:white;
+padding:18px;
+border-radius:12px;
+height:0;
+overflow:auto;
+transition:1.2s;
+font-size:14px;
+line-height:1.7;
+text-align:left;
+}
+
+.abierto .tapa{
+transform:rotateX(180deg);
+}
+
+.abierto .carta{
+height:360px;
+}
+
+.firma{
+text-align:center;
+margin-top:15px;
+color:#ff4f8b;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="hearts"></div>
+
+<div class="contenedor">
+
+<div class="rabbit">🐰</div>
+
+<h1>¡Hola, te llegó un correo!</h1>
+
+<p class="sub">Tócalo para abrirlo 💌</p>
+
+<div class="sobre" onclick="abrir(this)">
+<div class="tapa"></div>
+<div class="base"></div>
+
+<div class="carta">
+
+<h3 style="text-align:center;color:#ff4f8b;">Para mi amor ❤️</h3>
+
+<br>
+
+Amor...
+
+Sé que existe una distancia entre nosotras, pero eso no me ha detenido a amarte, quererte y respetarte.
+
+Cada día me haces sentir la mujer más afortunada por tenerte en mi vida.
+
+Aunque no pueda abrazarte cuando quisiera, mi corazón siempre encuentra la manera de llegar hasta ti.
+
+Eres lo más bonito que tengo, mi lugar seguro y la persona con la que quiero seguir compartiendo muchos momentos.
+
+En esta carta quise dejar un pedacito de mi corazón...
+
+Porque todo lo demás ya es tuyo. ❤️
+
+Gracias por existir y por hacerme tan feliz.
+
+Te amo muchísimo, preciosa.
+
+<div class="firma">
+
+Con amor,<br>
+Tu novia. 💌
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function abrir(e){
+e.classList.add("abierto");
+}
+
+for(let i=0;i<35;i++){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(15+Math.random()*25)+"px";
+
+h.style.animationDuration=(5+Math.random()*6)+"s";
+
+h.style.animationDelay=Math.random()*5+"s";
+
+document.getElementById("hearts").appendChild(h);
+
+}
+
+</script>
+
+</body>
+</html>
